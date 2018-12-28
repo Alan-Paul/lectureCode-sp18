@@ -2,17 +2,31 @@ public class Lists1Exercises {
     /** Returns an IntList identical to L, but with
       * each element incremented by x. L is not allowed
       * to change. */
-    public static IntList incrList(IntList L, int x) {
-        /* Your code here. */
-        return L;        
+    public static IntList incrList(IntList l, int x) {
+        if (l == null) {
+            return null;
+          }
+          IntList p = new IntList(l.first + increment,null);
+          IntList front = p;
+          l = l.rest;
+          while (l != null) {
+            front.rest = new IntList(l.first + increment, null);
+            front = front.rest;
+            l = l.rest;
+          }
+          return p;      
     }
 
     /** Returns an IntList identical to L, but with
       * each element incremented by x. Not allowed to use
       * the 'new' keyword. */
     public static IntList dincrList(IntList L, int x) {
-        /* Your code here. */
-        return L;
+        IntList p = l;
+        while (l != null) {
+          l.first -= reduction;
+          l = l.rest;
+        }
+        return p;
     }
 
     public static void main(String[] args) {
